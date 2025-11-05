@@ -1,6 +1,6 @@
 # Product Advertising API SDK for PHP (v1)
 
-[![Build Status](https://travis-ci.org/rossjcooper/Amazon-Product-Advertising-API-5.0-PHP-SDK.svg?branch=master)](https://travis-ci.org/rossjcooper/Amazon-Product-Advertising-API-5.0-PHP-SDK) [![Latest Stable Version](https://poser.pugx.org/rossjcooper/paapiphpsdk/v/stable)](https://packagist.org/packages/rossjcooper/paapiphpsdk) [![Total Downloads](https://poser.pugx.org/rossjcooper/paapiphpsdk/downloads)](https://packagist.org/packages/rossjcooper/paapiphpsdk)
+[![Build Status](https://travis-ci.org/razorcreations/Amazon-Product-Advertising-API-5.0-PHP-SDK.svg?branch=master)](https://travis-ci.org/razorcreations/Amazon-Product-Advertising-API-5.0-PHP-SDK) [![Latest Stable Version](https://poser.pugx.org/razorcreations/paapiphpsdk/v/stable)](https://packagist.org/packages/razorcreations/paapiphpsdk) [![Total Downloads](https://poser.pugx.org/razorcreations/paapiphpsdk/downloads)](https://packagist.org/packages/rossjcooper/paapiphpsdk)
 
 This repository contains the open source PHP SDK that allows you to access the [Product Advertising API](https://webservices.amazon.com/paapi5/documentation/index.html) from your PHP app.
 
@@ -9,7 +9,7 @@ This repository contains the open source PHP SDK that allows you to access the [
 The Product Advertising API PHP SDK can be installed with [Composer](https://getcomposer.org/). Run this command:
 
 ```sh
-$ composer require rossjcooper/paapiphpsdk
+$ composer require razorcreations/paapiphpsdk
 ```
 ## Usage
 
@@ -151,11 +151,11 @@ try {
                 echo "Title: ", $item->getItemInfo()->getTitle()->getDisplayValue(), PHP_EOL;
             }
             if ($item->getOffers() != null
-                and $item->getOffers() != null
-                and $item->getOffers()->getListings() != null
-                and $item->getOffers()->getListings()[0]->getPrice() != null
-                and $item->getOffers()->getListings()[0]->getPrice()->getDisplayAmount() != null) {
-                echo "Buying price: ", $item->getOffers()->getListings()[0]->getPrice()
+                and $item->getOffersV2() != null
+                and $item->getOffersV2()->getListings() != null
+                and $item->getOffersV2()->getListings()[0]->getPrice() != null
+                and $item->getOffersV2()->getListings()[0]->getPrice()->getDisplayAmount() != null) {
+                echo "Buying price: ", $item->getOffersV2()->getListings()[0]->getPrice()
                     ->getDisplayAmount(), PHP_EOL;
             }
         }

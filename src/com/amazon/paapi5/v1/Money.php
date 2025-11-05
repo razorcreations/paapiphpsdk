@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -13,19 +14,20 @@
  * express or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
+
 namespace Amazon\ProductAdvertisingAPI\v1\com\amazon\paapi5\v1;
 
 use \ArrayAccess;
 use \Amazon\ProductAdvertisingAPI\v1\ObjectSerializer;
 
 /**
- * BrowseNodeChildren Class Doc Comment
+ * Money Class Doc Comment
  *
  * @category Class
  * @package  Amazon\ProductAdvertisingAPI\v1
  * @author   Product Advertising API team
  */
-class BrowseNodeChildren implements ModelInterface, ArrayAccess
+class Money implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -34,7 +36,7 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BrowseNodeChildren';
+    protected static $swaggerModelName = 'Money';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -42,7 +44,9 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'amount' => 'float',
+        'currency' => 'string',
+        'displayAmount' => 'string'
     ];
 
     /**
@@ -51,7 +55,9 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'amount' => null,
+        'currency' => null,
+        'displayAmount' => null
     ];
 
     /**
@@ -81,7 +87,9 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'amount' => 'Amount',
+        'currency' => 'Currency',
+        'displayAmount' => 'DisplayAmount'
     ];
 
     /**
@@ -90,7 +98,9 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'amount' => 'setAmount',
+        'currency' => 'setCurrency',
+        'displayAmount' => 'setDisplayAmount'
     ];
 
     /**
@@ -99,7 +109,9 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'amount' => 'getAmount',
+        'currency' => 'getCurrency',
+        'displayAmount' => 'getDisplayAmount'
     ];
 
     /**
@@ -162,6 +174,9 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['displayAmount'] = isset($data['displayAmount']) ? $data['displayAmount'] : null;
     }
 
     /**
@@ -171,7 +186,7 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
 
         return $invalidProperties;
     }
@@ -184,13 +199,81 @@ class BrowseNodeChildren implements ModelInterface, ArrayAccess
      */
     public function valid()
     {
-        if (!parent::valid()) {
-            return false;
-        }
-
-        return true;
+        return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets amount
+     *
+     * @return float
+     */
+    public function getAmount()
+    {
+        return $this->container['amount'];
+    }
+
+    /**
+     * Sets amount
+     *
+     * @param float $amount amount
+     *
+     * @return $this
+     */
+    public function setAmount($amount)
+    {
+        $this->container['amount'] = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency
+     *
+     * @return string
+     */
+    public function getCurrency()
+    {
+        return $this->container['currency'];
+    }
+
+    /**
+     * Sets currency
+     *
+     * @param string $currency currency
+     *
+     * @return $this
+     */
+    public function setCurrency($currency)
+    {
+        $this->container['currency'] = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets displayAmount
+     *
+     * @return string
+     */
+    public function getDisplayAmount()
+    {
+        return $this->container['displayAmount'];
+    }
+
+    /**
+     * Sets displayAmount
+     *
+     * @param string $displayAmount displayAmount
+     *
+     * @return $this
+     */
+    public function setDisplayAmount($displayAmount)
+    {
+        $this->container['displayAmount'] = $displayAmount;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
